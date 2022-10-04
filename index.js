@@ -13,7 +13,7 @@ const forecastService = new ForecastService(sitelistService, forecastApiClient);
 const consoleRunner = new ConsoleRunner(forecastService);
 consoleRunner.runForever();
 
-const siteList = '.resources/sitelist.json';
+const siteList = './resources/sitelist.json';
 console.log(siteList);
 console.log("I am testing GitHub");
 

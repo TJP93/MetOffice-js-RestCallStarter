@@ -1,23 +1,22 @@
 import { prompt } from 'readline-sync';
 
-export const ENTER_DESIRED_LOCATION = 1;
+export const LIST_OF_LOCATIONS = 1;
 export const GET_FORECAST = 2;
 export const EXIT = 3;
 
 
 class Command {
-    constructor(type, account) {
+    constructor(type, location) {
         this.type = type;
-        this.account = account;
+        this.location = location;
     }
 }
 
 function promptForCommand() {
     console.log('\nAvailable commands:');
-    console.log(' - List All');
-    console.log(' - List <Account>');
+    console.log(' - List');
+    console.log(' - Forecast ');
     console.log(' - Exit');
-    console.log(' - Test');
     console.log('\nPlease enter your command:');
     return prompt();
 }
@@ -25,14 +24,12 @@ function promptForCommand() {
 function parseCommand(command) {
     if (command.toLowerCase() === 'exit') {
         return new Command(EXIT);
-    }   else if (command.toLowerCase() === 'test') {
-        return new Command(TEST);
-    }                                               {
-    } if (command.toLowerCase() === 'list all') {
-        return new Command(LIST_ALL);
-    } else if (command.toLowerCase().startsWith('list ')) {
-        const account = command.slice(5);
-        return new Command(LIST_ACCOUNT, account);
+    } else if (command.toLowerCase() === 'list') {
+        return new Command(LIST_OF_LOCATIONS);
+
+    } else if (command.toLowerCase().startsWith('forecast ')) {
+        const location = command.slice(9);
+        return new Command(GET_FORECAST, location);
     } else {
         return undefined;
     }
