@@ -16,7 +16,7 @@ function processCommand(bank) {
 }
 
 function displayWelcomeMessage() {
-    console.log('\nWelcome to SupportBank!');
+    console.log('\nWelcome to my Forecast Application!');
     console.log('=========================');
 }
 
