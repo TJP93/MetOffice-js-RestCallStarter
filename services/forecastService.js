@@ -19,7 +19,7 @@ export default class ForecastService {
         if (locationId) {
         // use the id we just obtained to get forecast
         const forecast = this.forecastApiClient.getForecastForLocation(locationId)
-        console.log(forecast);
+        forecast.then(console.log(forecast));
         return forecast;
     } else {
         return null;
